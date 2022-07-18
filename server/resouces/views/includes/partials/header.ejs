@@ -1,0 +1,65 @@
+<header class="text-gray-400 bg-gray-900 body-font">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+
+      <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+        </svg>
+        <span class="ml-3 text-xl">Tailblocks</span>
+      </a>
+
+      <div class="ml-4 cursor-pointer" id="toggle-slider-bar">
+        <svg class="h-8 w-8 text-white"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="4" y1="6" x2="20" y2="6" />  <line x1="4" y1="12" x2="20" y2="12" />  <line x1="4" y1="18" x2="20" y2="18" /></svg>
+      </div>
+
+      <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center lg:block hidden">
+        <a class="mr-5 hover:text-white">First Link</a>
+        <a class="mr-5 hover:text-white">Second Link</a>
+        <a class="mr-5 hover:text-white">Third Link</a>
+        <a class="mr-5 hover:text-white">Fourth Link</a>
+      </nav>
+
+      <div class="lg:block hidden relative">
+          <button class="inline-flex items-center bg-gray-800 border-0 py-[2px] px-[2px] focus:outline-none hover:bg-gray-700 rounded-full text-base mt-4 md:mt-0 w-10 h-10 focus:bg-white" id="avatar">
+            <img src="https://picsum.photos/seed/picsum/200/300" class="rounded-full w-full h-full">
+          </button>
+          <div id="list-action" class="block absolute w-40  bg-gray-800 right-0 rounded hidden transition-all z-50">
+              <a class="hover:text-white block py-2 pl-2 cursor-pointer">Tài khoản</a>
+              <a class="hover:text-white block py-2 pl-2 cursor-pointer">Đổi mật khẩu</a>
+              <a  href="/auth/logout" class="hover:text-white block py-2 pl-2 cursor-pointer border-t space-y-2">Đăng xuất</a>
+          </div>
+      </div>
+    </div>
+</header>
+
+<script>
+    document.addEventListener('DOMContentLoaded', ev => {
+        /*const avatar = document.querySelector('#avatar');
+        const listAction = document.querySelector("#list-action");
+        avatar.onclick = ()=>{
+            if(!listAction.classList.contains('hidden')){
+                listAction.classList.add('hidden');
+                return;
+            }
+            listAction.classList.remove('hidden');
+        }
+        avatar.addEventListener('focusout', (e)=>{
+            setTimeout(()=>{
+                listAction.classList.add('hidden');
+            },200);
+        });*/
+        const actionList = $('#list-action');
+        $('#avatar').click(function (){
+                actionList.not(actionList.toggle()).hide();
+        });
+
+        $(document).on("click", function (event){
+            const $trigger = $("#avatar");
+            if($trigger !== event.target && !$trigger.has(event.target).length){
+                actionList.hide();
+            }
+        });
+    });
+
+</script>
+
