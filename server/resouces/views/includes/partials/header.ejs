@@ -23,10 +23,26 @@
           <button class="inline-flex items-center bg-gray-800 border-0 py-[2px] px-[2px] focus:outline-none hover:bg-gray-700 rounded-full text-base mt-4 md:mt-0 w-10 h-10 focus:bg-white" id="avatar">
             <img src="https://picsum.photos/seed/picsum/200/300" class="rounded-full w-full h-full">
           </button>
-          <div id="list-action" class="block absolute w-40  bg-gray-800 right-0 rounded hidden transition-all z-50">
-              <a class="hover:text-white block py-2 pl-2 cursor-pointer">Tài khoản</a>
-              <a class="hover:text-white block py-2 pl-2 cursor-pointer">Đổi mật khẩu</a>
-              <a  href="/auth/logout" class="hover:text-white block py-2 pl-2 cursor-pointer border-t space-y-2">Đăng xuất</a>
+            <!-- dropdown menu avatar -->
+          <div id="list-action" class="absolute right-0 hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+              <div class="py-3 px-4 text-sm text-gray-900 dark:text-white">
+                  <div>Bonnie Green</div>
+                  <div class="font-medium truncate">name@flowbite.com</div>
+              </div>
+              <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="avatarButton">
+                  <li>
+                      <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                  </li>
+                  <li>
+                      <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                  </li>
+                  <li>
+                      <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                  </li>
+              </ul>
+              <div class="py-1">
+                  <a  href="/auth/logout" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+              </div>
           </div>
       </div>
     </div>
