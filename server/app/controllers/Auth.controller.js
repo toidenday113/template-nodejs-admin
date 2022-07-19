@@ -12,8 +12,7 @@ class AuthController{
        userModel.login({username: username}).then(result=>{
             const checkPass = bcrypt.compareSync(password, result.password);
             if(checkPass){
-               const createToken  = jwt.sign(
-                {id: result.id, username: result.username},
+               const createToken  = jwt.sign({id: result.id, username: result.username},
                 process.env.SECRET_KEY_JWT,
                 {expiresIn: '2h'});
                 res.cookie('tokenId', createToken, { signed : true });

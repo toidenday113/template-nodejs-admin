@@ -9,7 +9,7 @@ exports.up = function(knex) {
     table.string('lastName', 255).nullable();
     table.string('email', 255).nullable();
     table.string('username', 255).notNullable();
-    table.string('password', 40).notNullable();
+    table.string('password', 100).notNullable();
     table.string('token', 255).nullable();
     table.string('avatar', 255).nullable();
     table.integer('usergroup',10).nullable();

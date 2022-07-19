@@ -8,7 +8,7 @@ class UserModel{
     }
 
     findOne(id){
-        return getTable(this.user).select().where('id', id);
+        return getTable(this.user).select().where('id', id).first();
     }
 
     insertAll(arrData){
@@ -22,7 +22,7 @@ class UserModel{
     update(data, arrId){
         return getTable(this.user).whereIn('id', arrId).update(data);
     }
-    
+
     delete(arrId){
         return getTable(this.user).whereIn('id', arrId).del();
     }

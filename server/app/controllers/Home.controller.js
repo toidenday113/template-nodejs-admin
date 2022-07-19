@@ -1,8 +1,13 @@
-const { getView } = require("../utils/function-utils");
+const { getView, decodeCookie} = require("../utils/function-utils");
+const userModel = require('../models/User.model');
 
 class HomeController{
     index(req, res, next){
-        res.render(getView('home.home'),{});
+        const idUser = decodeCookie(req).id;
+        userModel.findOne(idUser).then(result=>{
+            delete  result.password;
+            res.render(getView('home.home'), {user: result});
+        }).catch(error=> console.log(error.message));
     }
 }
 const homeController = new HomeController();
