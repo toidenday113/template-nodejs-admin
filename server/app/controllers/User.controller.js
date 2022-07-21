@@ -11,7 +11,7 @@ class UserController {
     EditUser(req, res, next){
         const {id} = req.params;
         userModel.findOne(id).then(result=>{
-
+            res.render(getView('users.edit-user'), {user: result});
         }).catch(err => console.log(err.message));
     }
 }
