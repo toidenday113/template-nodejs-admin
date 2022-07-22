@@ -1,6 +1,6 @@
 const userModel = require("../models/User.model");
 const {getView} = require("../utils/function-utils");
-
+const typeUser = require('../constants/type-user');
 class UserController {
     index(req, res, next){
         userModel.findAll().then(result=>{
@@ -8,11 +8,19 @@ class UserController {
         }).catch(err => console.log(err.message));
     }
 
-    EditUser(req, res, next){
+    getViewEdit(req, res, next){
         const {id} = req.params;
         userModel.findOne(id).then(result=>{
             res.render(getView('users.edit-user'), {user: result});
         }).catch(err => console.log(err.message));
+    }
+
+    getViewAdd(req, res){
+        res.render(getView('users.add-user'), {typeUser});
+    }
+
+    postAdd(req, res){
+        res.json(req.body);
     }
 }
 

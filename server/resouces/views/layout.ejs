@@ -13,12 +13,12 @@
 </head>
 <body>
     <%- include('./includes/partials/header.ejs') %>
-    <section class="flex flex-row">
-        <div class="h-screen">
+    <section class="flex dark:bg-gray-800">
+        <div class="h-screen flex-none">
             <%- include('./includes/partials/sidebar.ejs') %>
         </div>
 
-        <main class="flex-1 container">
+        <main class="flex-auto w-full max-h-full overflow-visible static" >
             <%- body %>
         </main>
     </section>
