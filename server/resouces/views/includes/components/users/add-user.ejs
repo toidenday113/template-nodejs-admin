@@ -1,8 +1,8 @@
 <div class="flex-auto p-4 dark:bg-gray-800">
-    <%if(add_error){%>
-        <% include(../toast/toast-danger.ejs, {title: 'Lỗi thêm tài khoản người dùng'}) %>
+    <% if(add_error){ %>
+        <%- include('../toast/toast-danger.ejs', {toast_title: 'Lỗi thêm tài khoản người dùng'}) %>
     <%}%>
-    <form method="post" action="">
+    <form method="post" action="" enctype="multipart/form-data">
         <div class="rounded-lg">
                 <div class="p-4  rounded-t-lg border dark:bg-gray-700 dark:border-gray-600">
                     <div class="flex justify-between items-center">

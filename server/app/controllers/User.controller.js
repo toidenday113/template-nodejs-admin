@@ -33,7 +33,7 @@ class UserController {
     postAdd(req, res){
        const dataBody = req.body;
        if(dataBody.avatar !== ""){
-           res.json(dataBody);
+           console.log(dataBody.avatar);
            return;
        }
        delete dataBody.confirm_password;
@@ -45,9 +45,11 @@ class UserController {
        userModel.insertOne(data).then(result=>{
             if(result.length > 0){
                 res.redirect('/user');
+                return;
             }
             res.redirect('/user/add?add=error');
-       }).catch(error => console.log(error.message));
+
+       }).catch(() => res.redirect('/user/add?add=error'));
     }
 }
 
