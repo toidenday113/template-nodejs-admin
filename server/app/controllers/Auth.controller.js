@@ -4,7 +4,18 @@ const jwt = require('jsonwebtoken');
 const userModel = require('../models/User.model');
 class AuthController{
     getLogin(req, res){
-        res.render(getView('login.login'), getLayout('layout-login'));
+        const timeLogin = req.query.login;
+        let option = {
+            ...getLayout('layout-login'),
+            login_error: false
+        };
+        if(timeLogin === 'error'){
+            option = {
+                ...option,
+                login_error: true
+            }
+        }
+        res.render(getView('login.login'), option);
     };
 
     postLogin(req, res){
@@ -33,7 +44,7 @@ class AuthController{
                 return;
             }
             res.statusCode = 200;
-            res.redirect('auth/login');
+            res.redirect('back');
        }).catch(err=>console.log(err));
     };
 
