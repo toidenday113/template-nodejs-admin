@@ -28,7 +28,7 @@
                     </thead>
                     <tbody >
                         <% for(var i=0; i<10; i++){ %>
-                            <%- include('./item-category.ejs') %>
+                            <%- include('./item-category.ejs', {id:i}) %>
                         <%}%>
                     </tbody>
                 </table>
@@ -42,13 +42,15 @@
 <script>
     document.addEventListener('DOMContentLoaded', ()=>{
         const cbSelectAll = $('#checkbox-all');
-        const allItemCb = $('input[type="checkbox"]');
+        const allItemCb = $('input[name="cbItemId[]"]');
         cbSelectAll.change((e)=>{
             allItemCb.prop('checked',cbSelectAll.is(":checked"));
         });
 
-        allItemCb.change((e)=>{
-            console.log(e);
+        allItemCb.click((e)=>{
+            let isCheckAll = allItemCb.length === $('input[name="cbItemId[]"]:checked').length;
+            console.log(isCheckAll)
+            cbSelectAll.prop('checked', isCheckAll);
         });
 
     });
