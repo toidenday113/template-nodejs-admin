@@ -1,35 +1,36 @@
 <div id="add-category">
     <div id="card-add">
-        <div class="flex justify-between item-center dark:bg-gray-700 dark:border-gray-400 p-4 border rounded-t-lg">
-            <h4 class="font-semibold dark:text-gray-400">Thêm danh mục</h4>
-            <button class="px-3 py-1 dark:bg-blue-600 dark:text-white rounded-lg">
-                Lưu
-            </button>
-        </div>
-        <div class="dark:border-gray-400 border border-t-0 rounded-b-lg p-4">
-
-            <form>
-                <div class="mb-6">
-                    <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Category parent</label>
-                    <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="categoryParent">
-                        <option selected="" value=0>Default</option>
-                        <option value="US">United States</option>
-                        <option value="CA">Canada</option>
-                        <option value="FR">France</option>
-                        <option value="DE">Germany</option>
-                    </select>
-
-                </div>
-                <div class="mb-6">
-                    <label for="Tên danh mục" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tên danh mục</label>
-                    <input type="text" id="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="tên danh mục" required="" name="nameCategory">
-                </div>
+        <form METHOD="post" ACTION="/category/add">
+            <div class="flex justify-between item-center dark:bg-gray-700 dark:border-gray-400 p-4 border rounded-t-lg">
+                <h4 class="font-semibold dark:text-gray-400">Thêm danh mục</h4>
+                <button class="px-3 py-1 dark:bg-blue-600 dark:text-white rounded-lg">
+                    Lưu
+                </button>
+            </div>
+            <div class="dark:border-gray-400 border border-t-0 rounded-b-lg p-4">
 
 
-                <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Lưu</button>
-            </form>
+                    <div class="mb-6">
+                        <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Category parent</label>
+                        <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="parent_id">
+                            <option selected="" value=0>Default</option>
+                            <option value="US">United States</option>
+                            <option value="CA">Canada</option>
+                            <option value="FR">France</option>
+                            <option value="DE">Germany</option>
+                        </select>
 
-        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label for="Tên danh mục" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tên danh mục</label>
+                        <input type="text" id="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="tên danh mục" required="" name="name">
+                    </div>
+
+
+                    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Lưu</button>
+
+            </div>
+        </form>
     </div>
 </div>
 

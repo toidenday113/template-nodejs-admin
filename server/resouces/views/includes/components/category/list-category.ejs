@@ -27,9 +27,9 @@
                     </tr>
                     </thead>
                     <tbody >
-                        <% for(var i=0; i<10; i++){ %>
-                            <%- include('./item-category.ejs', {id:i}) %>
-                        <%}%>
+                        <%categories.forEach(category=>{ %>
+                            <%- include('./item-category.ejs', {category}) %>
+                        <%})%>
                     </tbody>
                 </table>
             </div>

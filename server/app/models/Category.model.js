@@ -4,8 +4,16 @@ class CategoryModel{
         this.category = 'category';
     }
 
-    findAll(){
-        return getTable(this.category).select();
+    findAll(col = []){
+        return getTable(this.category).select(col);
+    }
+
+    findOne(id, col = []){
+        return getTable(this.category).select(col).where('id', id);
+    }
+
+    insert(dataInsert){
+        return getTable(this.category).insert(dataInsert);
     }
 }
 const categoryModel = new CategoryModel();

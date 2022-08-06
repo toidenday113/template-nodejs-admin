@@ -21,5 +21,14 @@ const hashPassword = (pass)=>{
     return bcrypt.hashSync(pass, salt);
 }
 
+const getSubCategory =(getData, parentId = false)=> {
+    let listSubCategory = [];
+    if (parentId) {
+        listSubCategory = getData.filter(category => category.id === false);
+    } else {
+        listSubCategory = getData.filter(category => category.id === parentId);
+    }
+
+}
 
 module.exports = {getView, getLayout, decodeCookie, hashPassword}
