@@ -21,14 +21,36 @@ const hashPassword = (pass)=>{
     return bcrypt.hashSync(pass, salt);
 }
 
-const getSubCategory =(getData, parentId = false)=> {
-    let listSubCategory = [];
-    if (parentId) {
-        listSubCategory = getData.filter(category => category.id === false);
+const listCategoriesNew =(categories, parentId = 0)=> {
+    let categoriesNew = [];
+    let parentCategoriesId;
+    if (parentId === 0) {
+        parentCategoriesId = categories.filter(category => category.parent_id === 0);
     } else {
-        listSubCategory = getData.filter(category => category.id === parentId);
-    }
+        parentCategoriesId = categories.filter(category => category.parent_id === parentId);
 
+    }
+    for(let data of parentCategoriesId){
+        categoriesNew.push({
+            id: data.id,
+            name: data.name,
+            children: listCategoriesNew(categories, data.id)
+        })
+    };
+    return categoriesNew;
 }
 
-module.exports = {getView, getLayout, decodeCookie, hashPassword}
+const menuCategories = (categories, num, strOption="")=>{
+    categories.map(category=>{
+            if(category === null){
+                return strOption;
+            }
+            strOption += `<option value=${category.id}>${category.name}</option>`;
+            if(category.children.length !== 0){
+                num++;
+               menuCategories(category.children, num);
+            }
+      });
+}
+
+module.exports = {getView, getLayout, decodeCookie, hashPassword, listCategoriesNew, menuCategories}

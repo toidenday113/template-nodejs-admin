@@ -1,3 +1,18 @@
+<%
+    var strOption = "";
+    var strChar ="---"
+const menuCategories = (categories, num)=>{
+    num++;
+    categories.map(category=>{
+        strOption += `<option value=${category.id}> ${strChar.repeat(num-1)}${category.name}</option>`;
+        if(category.children.length !== 0){
+
+            menuCategories(category.children, num);
+        }
+    });
+}
+menuCategories(categories,0);
+%>
 <div id="add-category">
     <div id="card-add">
         <form METHOD="post" ACTION="/category/add">
@@ -12,12 +27,9 @@
 
                     <div class="mb-6">
                         <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Category parent</label>
-                        <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="parent_id">
-                            <option selected="" value=0>Default</option>
-                            <option value="US">United States</option>
-                            <option value="CA">Canada</option>
-                            <option value="FR">France</option>
-                            <option value="DE">Germany</option>
+                        <select id="select-parent" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="parent_id">
+                            <option selected="" value='0'>Default</option>
+                            <%-strOption%>
                         </select>
 
                     </div>

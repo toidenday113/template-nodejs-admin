@@ -1,11 +1,14 @@
-const {getView} = require("../utils/function-utils");
+const {getView, listCategoriesNew, menuCategories} = require("../utils/function-utils");
 const categoryModel = require("../models/Category.model");
 
 class CategoryController{
     index(req, res){
         categoryModel.findAll(['id', 'name', 'parent_id']).then(categories=>{
-            console.log(categories);
-            res.render(getView('category.index'), {categories: categories});
+            let categoriesNew = listCategoriesNew(categories);
+            res.render(
+                getView('category.index'),
+                {categories: categoriesNew}
+            );
         }).catch();
 
     }
