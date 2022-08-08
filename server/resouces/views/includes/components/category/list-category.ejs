@@ -1,3 +1,17 @@
+<%
+const rowCategories = (categories, num)=>{
+    num++;
+    categories.map(category=>{
+%>
+    <%-include('./item-category.ejs', {category, num});%>
+<%
+        if(category.children.length !== 0){
+            rowCategories(category.children, num);
+        }
+    });
+}
+%>
+
 <div id="list-category">
     <div id="card-list">
         <div class="flex justify-between item-center dark:bg-gray-700 dark:border-gray-400 p-4 border rounded-t-lg">
@@ -27,9 +41,7 @@
                     </tr>
                     </thead>
                     <tbody >
-                        <%categories.forEach(category=>{ %>
-                            <%- include('./item-category.ejs', {category}) %>
-                        <%})%>
+                        <%rowCategories(categories,0)%>
                     </tbody>
                 </table>
             </div>
@@ -52,6 +64,5 @@
             console.log(isCheckAll)
             cbSelectAll.prop('checked', isCheckAll);
         });
-
     });
 </script>

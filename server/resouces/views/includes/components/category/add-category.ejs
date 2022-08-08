@@ -1,18 +1,15 @@
 <%
     var strOption = "";
-    var strChar ="---"
 const menuCategories = (categories, num)=>{
     num++;
     categories.map(category=>{
-        strOption += `<option value=${category.id}> ${strChar.repeat(num-1)}${category.name}</option>`;
+        strOption += `<option value=${category.id}> ${"---".repeat(num-1)}${category.name}</option>`;
         if(category.children.length !== 0){
-
             menuCategories(category.children, num);
         }
     });
 }
 menuCategories(categories,0);
-
 %>
 <div id="add-category">
     <div id="card-add">
