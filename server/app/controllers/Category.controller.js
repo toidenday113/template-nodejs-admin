@@ -5,6 +5,7 @@ class CategoryController{
     index(req, res){
         categoryModel.findAll(['id', 'name', 'parent_id']).then(categories=>{
             let categoriesNew = listCategoriesNew(categories);
+
             res.render(
                 getView('category.index'),
                 {categories: categoriesNew}

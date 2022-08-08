@@ -40,17 +40,4 @@ const listCategoriesNew =(categories, parentId = 0)=> {
     return categoriesNew;
 }
 
-const menuCategories = (categories, num, strOption="")=>{
-    categories.map(category=>{
-            if(category === null){
-                return strOption;
-            }
-            strOption += `<option value=${category.id}>${category.name}</option>`;
-            if(category.children.length !== 0){
-                num++;
-               menuCategories(category.children, num);
-            }
-      });
-}
-
-module.exports = {getView, getLayout, decodeCookie, hashPassword, listCategoriesNew, menuCategories}
+module.exports = {getView, getLayout, decodeCookie, hashPassword, listCategoriesNew}
