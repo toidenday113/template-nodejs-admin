@@ -53,8 +53,12 @@ const rowCategories = (categories, num)=>{
 
 <script>
     document.addEventListener('DOMContentLoaded', ()=>{
+
         const cbSelectAll = $('#checkbox-all');
         const allItemCb = $('input[name="cbItemId[]"]');
+        const elementEdit = $('.edit');
+
+        // Checkbox Select row item
         cbSelectAll.change((e)=>{
             allItemCb.prop('checked',cbSelectAll.is(":checked"));
         });
@@ -63,6 +67,12 @@ const rowCategories = (categories, num)=>{
             let isCheckAll = allItemCb.length === $('input[name="cbItemId[]"]:checked').length;
             console.log(isCheckAll)
             cbSelectAll.prop('checked', isCheckAll);
+        });
+
+        // Edit item
+        elementEdit.click((e)=>{
+            console.log(e.target.dataset.id);
+
         });
     });
 </script>
