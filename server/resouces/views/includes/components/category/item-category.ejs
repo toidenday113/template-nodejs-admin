@@ -7,7 +7,15 @@
     </td>
 
     <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+        <%
+            if(num-1 === 0){
+        %>
+           <span class="dark:text-blue-400 font-bold"> <i class="fa-thin fa-list-tree"></i> <%=category.name%></span>
+        <%
+            }else{
+        %>
         <%- "---".repeat(num-1)%> <%=category.name%>
+        <%}%>
     </th>
     <td class="py-4 px-6">
         Sliver
