@@ -16,7 +16,9 @@ const Form = (props) => {
                                 </button>
                             </div>
                         </div>
+
                         {props.children}
+
                     </div>
                 </form>
             </div>

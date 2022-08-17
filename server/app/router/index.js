@@ -5,6 +5,7 @@ const userRouter = require("./user/User.router");
 const categoryRouter = require("./category/Category.router");
 
 const initRouter = (app)=>{
+    app.get('/react', homeController.react);
     app.get("/", authMiddleware, homeController.index);
     app.use('/auth', loginRouter);
     app.use('/user', authMiddleware, userRouter);
