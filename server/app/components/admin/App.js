@@ -5,14 +5,12 @@ import Button from "./button/Button";
 import Form from "./form/Form";
 import {store} from "./store/store";
 import {Provider} from "react-redux";
+import User from './pages/user/User';
 
 const App = () => {
     return (
         <>
-           <Form label={'Them thanh vien'}>
-               <Input type={"text"} required={false} label={'Họ và Tên'} placeholder={"Nhap vao ho ten"} name={"fullName"}/>
-               <Button label={'Lưu'}/>
-           </Form>
+           <User/>
         </>
     );
 };

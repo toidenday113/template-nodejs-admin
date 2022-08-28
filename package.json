@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "run-p start:server tailwind",
     "ourwebpack": "webpack --watch",
-    "start:server": "nodemon  ./server/server.js",
+    "start:server": "nodemon --watch './server/app/**/*' ./server/server.js",
     "tailwind": "tailwindcss -i  ./tailwindcss.css -o ./server/public/css/style.css -w"
   },
   "dependencies": {

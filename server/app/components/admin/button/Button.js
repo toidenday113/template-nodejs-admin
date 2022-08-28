@@ -11,7 +11,7 @@ function Button({label, class_name}) {
     return (
         <>
             <button type="submit"
-                    className={`button ${class_name}`}>
+                    className={`button`}>
                 {label}
             </button>
         </>

@@ -17,7 +17,9 @@ const Form = ({children, label}) => {
                     <div className="rounded-lg">
                         <div className="form-header">
                             <div className="flex justify-between items-center">
-                                <h4 className="dark:text-gray-300 font-semibold">{label}</h4>
+                                <h4 className="dark:text-gray-300 font-semibold">
+                                    {label}
+                                </h4>
                                 <button type="submit"
                                         className="button">
                                     Lưu
